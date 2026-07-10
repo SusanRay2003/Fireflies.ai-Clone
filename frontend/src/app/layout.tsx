@@ -16,11 +16,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-screen bg-white overflow-hidden">
+        <div className="flex h-screen bg-[#FAFAFC] overflow-hidden">
           <Sidebar />
           <div className="flex flex-col flex-1 overflow-hidden">
             <Topbar />
-            <main className="flex-1 overflow-y-auto bg-gray-50">
+            <main className="flex-1 overflow-y-auto bg-[#FAFAFC]">
               {children}
             </main>
           </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import { Search, Bell, Mic2, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -13,34 +13,34 @@ export function Topbar() {
   };
 
   return (
-    <header className="h-12 border-b border-gray-200 bg-white flex items-center px-4 gap-4 flex-shrink-0">
-      <form onSubmit={handleSearch} className="flex-1 max-w-md">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400" />
+    <header className="h-20 border-b border-[#ECECEC] bg-white flex items-center px-8 gap-6 flex-shrink-0">
+      <form onSubmit={handleSearch} className="flex-1 flex justify-center">
+        <div className="relative w-full max-w-[520px]">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#666666]" />
           <input
             value={query}
-            onChange={e => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by title or keyword"
-            className="w-full pl-9 pr-3 py-1.5 text-sm bg-gray-50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+            className="w-full rounded-full border border-[#ECECEC] bg-[#FAFAFC] px-4 py-3 text-sm text-[#1F1F1F] outline-none transition focus:border-[#6D4AFF] focus:ring-2 focus:ring-[#F5F1FF]"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-gray-400">Ctrl+K</span>
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-[#666666] font-medium">Ctrl+K</span>
         </div>
       </form>
 
-      <div className="flex items-center gap-2 ml-auto">
-        <button className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 border border-gray-200 rounded-md hover:bg-gray-50">
+      <div className="flex items-center gap-4 ml-auto">
+        <button className="hidden sm:inline-flex items-center justify-center rounded-lg border border-[#ECECEC] bg-white px-4 py-2 text-sm font-medium text-[#1F1F1F] transition hover:bg-[#FAFAFC]">
           Invite
         </button>
-        <button className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-purple-600 text-white rounded-md hover:bg-purple-700">
-          <Mic2 className="w-3.5 h-3.5" />
+        <button className="inline-flex items-center gap-2 rounded-lg bg-[#6D4AFF] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#5A3FE6]">
+          <Mic2 className="w-4 h-4" />
           Capture
           <ChevronDown className="w-3 h-3" />
         </button>
-        <button className="relative p-1.5 text-gray-500 hover:text-gray-700">
+        <button className="relative rounded-lg p-2 text-[#666666] transition hover:bg-[#F5F1FF] hover:text-[#6D4AFF]">
           <Bell className="w-4 h-4" />
-          <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full" />
+          <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-red-500" />
         </button>
-        <div className="w-7 h-7 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#6D4AFF] text-xs font-bold text-white">
           S
         </div>
       </div>
