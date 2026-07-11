@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Home, Mic, Activity, Upload, Puzzle, BarChart2,
+  Home, Mic, Video, Activity, Upload, Puzzle, BarChart2,
   Bot, Sparkles, Users, TrendingUp, Settings, MoreHorizontal
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Home", icon: Home, href: "/" },
   { label: "AskFred", icon: Mic, href: "/ask-fred", shortcut: "Ctrl+J" },
-  { label: "Meetings", icon: Activity, href: "/meetings" },
+  { label: "Meetings", icon: Video, href: "/meetings" },
   { label: "Meeting Status", icon: Activity, href: "/meeting-status" },
   { label: "Uploads", icon: Upload, href: "/uploads" },
   { label: "Integrations", icon: Puzzle, href: "/integrations" },

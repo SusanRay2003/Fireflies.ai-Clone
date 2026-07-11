@@ -7,6 +7,7 @@ import { MeetingCard } from "@/components/meetings/MeetingCard";
 import { CreateMeetingModal } from "@/components/meetings/CreateMeetingModal";
 import { MeetingNotebookSidebar } from "@/components/meetings/MeetingNotebookSidebar";
 import { AskFredPanel } from "@/components/meetings/AskFredPanel";
+import { MeetingFiltersPopover } from "@/components/meetings/MeetingFiltersPopover";
 import { Video, Plus, Filter, Menu } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -17,6 +18,7 @@ export default function MeetingsPage() {
   const [meetings, setMeetings] = useState<MeetingListItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [showCreate, setShowCreate] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
   const [activeTab, setActiveTab] = useState<"hosted" | "shared">("hosted");
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
@@ -91,13 +93,20 @@ export default function MeetingsPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button className="hidden items-center gap-2 rounded-full border border-[#ECECEC] bg-white px-3 py-2 text-sm text-[#666666] transition hover:bg-[#FAFAFC] sm:inline-flex">
-              <Filter className="h-4 w-4" />
-              Filters
-            </button>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setShowFilters((current) => !current)}
+                className="hidden items-center gap-2 rounded-full border border-[#ECECEC] bg-white px-4 py-2 text-sm font-semibold text-[#666666] transition hover:bg-[#FAFAFC] sm:inline-flex"
+              >
+                <Filter className="h-4 w-4" />
+                Filters
+              </button>
+              {showFilters && <MeetingFiltersPopover onClose={() => setShowFilters(false)} />}
+            </div>
             <button
               onClick={() => setShowCreate(true)}
-              className="inline-flex items-center gap-2 rounded-[12px] bg-[#6D4AFF] px-3 py-2 text-sm font-medium text-white transition hover:bg-[#5A3FE6]"
+              className="inline-flex items-center gap-2 rounded-full bg-[#6D4AFF] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#5A3FE6]"
             >
               <Plus className="h-4 w-4" />
               New meeting
