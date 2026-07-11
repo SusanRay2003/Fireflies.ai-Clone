@@ -18,9 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <div className="flex h-screen bg-[#FAFAFC] overflow-hidden">
           <Sidebar />
-          <div className="flex flex-col flex-1 overflow-hidden">
+          <div className="flex h-screen flex-col flex-1 min-h-0 overflow-hidden">
             <Topbar />
-            <main className="flex-1 overflow-y-auto bg-[#FAFAFC]">
+            <main className="flex-1 min-h-0 overflow-y-auto bg-[#FAFAFC]">
               {children}
             </main>
           </div>
